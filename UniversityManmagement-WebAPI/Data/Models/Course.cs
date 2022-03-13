@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UniversityManmagement_WebAPI.Data.Models;
 
 namespace UniversityManagement.Data.Models
 {
@@ -23,7 +24,7 @@ namespace UniversityManagement.Data.Models
 
         public List<Enrollment> Enrollments { get; set; }
 
-        public List<Instructor> Instructors { get; set; }
+        public List<Course_Instructor> Course_Instructors { get; set; }
 
         public Course()
         {

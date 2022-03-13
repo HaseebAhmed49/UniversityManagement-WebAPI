@@ -13,27 +13,27 @@ namespace UniversityManmagement_WebAPI.Data
         {
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetService<UniversityManagementContext>();
-                if(!context.Instructors.Any())
-                {
-                    context.Instructors.AddRange(new Instructor()
-                    {
-                        LastName = "Haseeb",
-                        FirstMidName = "",
-                        HireDate = DateTime.Now,
-                        Courses = null,
-                        OfficeAssignment = null
-                    },
-                    new Instructor
-                    {
-                        LastName = "Ahmed",
-                        FirstMidName = "",
-                        HireDate = DateTime.Now,
-                        Courses = null,
-                        OfficeAssignment = null
-                    });
-                    context.SaveChanges();
-                }
+                //var context = serviceScope.ServiceProvider.GetService<UniversityManagementContext>();
+                //if(!context.Instructors.Any())
+                //{
+                //    context.Instructors.AddRange(new Instructor()
+                //    {
+                //        LastName = "Haseeb",
+                //        FirstMidName = "",
+                //        HireDate = DateTime.Now,
+                //        Courses = null,
+                //        OfficeAssignment = null
+                //    },
+                //    new Instructor
+                //    {
+                //        LastName = "Ahmed",
+                //        FirstMidName = "",
+                //        HireDate = DateTime.Now,
+                //        Courses = null,
+                //        OfficeAssignment = null
+                //    });
+                //    context.SaveChanges();
+                //}
             }
         }
 

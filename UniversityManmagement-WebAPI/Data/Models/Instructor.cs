@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UniversityManmagement_WebAPI.Data.Models;
 
 namespace UniversityManagement.Data.Models
 {
@@ -31,9 +32,9 @@ namespace UniversityManagement.Data.Models
             get => LastName + ", " + FirstMidName;            
         }
 
-        public List<Course> Courses { get; set; }
+        public List<Course_Instructor> Course_Instructors { get; set; }
 
-        public virtual OfficeAssignment OfficeAssignment { get; set; }
+        public OfficeAssignment OfficeAssignment { get; set; }
 
         public Instructor()
         {

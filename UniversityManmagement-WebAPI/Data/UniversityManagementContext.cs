@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UniversityManagement.Data.Models;
+using UniversityManmagement_WebAPI.Data.Models;
 
 namespace UniversityManmagement_WebAPI.Data
 {
@@ -25,8 +26,15 @@ namespace UniversityManmagement_WebAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Course_Instructor>()
+                .HasOne(c => c.Course)
+                .WithMany(ci => ci.Course_Instructors)
+                .HasForeignKey(cid => cid.CourseId);
 
-
+            modelBuilder.Entity<Course_Instructor>()
+                .HasOne(i => i.Instructor)
+                .WithMany(ci => ci.Course_Instructors)
+                .HasForeignKey(i => i.InstructorId);
         }
 
     }
