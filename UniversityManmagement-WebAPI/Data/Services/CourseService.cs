@@ -2,55 +2,48 @@
 using System.Collections.Generic;
 using System.Linq;
 using UniversityManagement.Data.Models;
+using UniversityManmagement_WebAPI.Data.Models;
 
 namespace UniversityManmagement_WebAPI.Data.Services
 {
-    public class InstructorService
+    public class CourseService
     {
         private UniversityManagementContext _context;
 
-        public InstructorService(UniversityManagementContext context)
+        public CourseService(UniversityManagementContext context)
         {
             _context = context;
         }
 
-        public void AddInstructor(InstructorVM instructor)
+        public void AddCourses(CourseVM course)
         {
-            var _instructor = new Instructor()
+            var _course = new Course()
             {
-                LastName = instructor.LastName,
-                FirstMidName = instructor.FirstMidName,
-                HireDate = DateTime.Now,
+                Title = course.Title,
+                Credits = course.Credits,
+                DepartmentID = course.DepartmentID,
+                Department = (from d in _context.Departments
+                              where d.DepartmentId == course.DepartmentID
+                              select d).FirstOrDefault(),
+                Enrollments = (from e in _context.Enrollments
+                               select e).ToList(),
             };
-            _context.Instructors.Add(_instructor);
+            _context.Courses.Add(_course);
             _context.SaveChanges();
+
+            //foreach (var id in course.Course_InstructorsId)
+            //{
+            //    var _course_instructor = new Course_Instructor()
+            //    {
+            //        CourseId = _course.CourseID,
+            //    };
+
+            //    _context.Course_Instructors.Add(_course_instructor);
+            //    _context.SaveChanges();
+            //}
         }
 
-        public List<Instructor> GetAllInstructors() => _context.Instructors.ToList();
+        public List<Course> GetAllCourses() => _context.Courses.ToList();
 
-        public Instructor GetInstructorById(int instructorId) => _context.Instructors.FirstOrDefault(n => n.InstructorId == instructorId);
-
-        public Instructor UpdateInstructorById(int instructorId,InstructorVM instructor)
-        {
-            var _instructor = _context.Instructors.FirstOrDefault(i => i.InstructorId == instructorId);
-            if(_instructor!=null)
-            {
-                _instructor.FirstMidName = instructor.FirstMidName;
-                _instructor.LastName = instructor.LastName;
-                _instructor.HireDate = instructor.HireDate;
-                _context.SaveChanges();
-            }
-            return _instructor;
-        }
-
-        public void DeleteInstructorById(int instructorId)
-        {
-            var _instructor = _context.Instructors.FirstOrDefault(i => i.InstructorId == instructorId);
-            if (_instructor != null)
-            {
-                _context.Instructors.Remove(_instructor);
-                _context.SaveChanges();
-            }
-        }
     }
 }
