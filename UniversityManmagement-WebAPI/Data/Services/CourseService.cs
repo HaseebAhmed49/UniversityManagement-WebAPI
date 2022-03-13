@@ -24,10 +24,17 @@ namespace UniversityManmagement_WebAPI.Data.Services
                 DepartmentID = course.DepartmentID,
                 Department = (from d in _context.Departments
                               where d.DepartmentId == course.DepartmentID
-                              select d).FirstOrDefault(),
-                Enrollments = (from e in _context.Enrollments
-                               select e).ToList(),
+                              select d).FirstOrDefault(),                
             };
+
+            foreach(var id in course.EnrollmentsId)
+            {
+                var _enrollment = (from e in _context.Enrollments
+                                   where e.EnrollmentID == id
+                                   select e).FirstOrDefault();
+                _course.Enrollments.Add(_enrollment);
+            }
+
             _context.Courses.Add(_course);
             _context.SaveChanges();
 

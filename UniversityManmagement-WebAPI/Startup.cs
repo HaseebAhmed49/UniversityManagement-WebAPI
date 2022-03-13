@@ -41,6 +41,9 @@ namespace UniversityManmagement_WebAPI
             //Configure the services.
             services.AddTransient<InstructorService>();
             services.AddTransient<StudentService>();
+            services.AddTransient<CourseService>();
+            services.AddTransient<DepartmentService>();
+            services.AddTransient<EnrollmentService>();
 
 
             services.AddSwaggerGen(c =>

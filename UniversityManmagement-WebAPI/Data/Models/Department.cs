@@ -25,12 +25,8 @@ namespace UniversityManagement.Data.Models
 
         public int? InstructorID { get; set; }
 
-        public Instructor Administrator { get; set; }
+        public Instructor? Administrator { get; set; }
 
         public List<Course> Courses { get; set; }
-
-        public Department()
-        {
-        }
     }
 }
