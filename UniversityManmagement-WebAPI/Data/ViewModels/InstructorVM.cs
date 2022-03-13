@@ -22,12 +22,8 @@ namespace UniversityManagement.Data.Models
         [Display(Name = "Hire Date")]
         public DateTime HireDate { get; set; }
 
-        //public virtual ICollection<Course> Courses { get; set; }
+        public int OfficeAssignmentId { get; set; }
 
-        //public virtual OfficeAssignment OfficeAssignment { get; set; }
-
-        public InstructorVM()
-        {
-        }
+        public List<int> Course_InstructorsId { get; set; }
     }
 }

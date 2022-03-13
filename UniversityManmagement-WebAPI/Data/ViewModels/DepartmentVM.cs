@@ -22,12 +22,6 @@ namespace UniversityManagement.Data.Models
 
         public int? InstructorID { get; set; }
 
-        public virtual Instructor Administrator { get; set; }
-
-        public virtual ICollection<Course> Courses { get; set; }
-
-        public DepartmentVM()
-        {
-        }
+        public List<int> CoursesId { get; set; }
     }
 }

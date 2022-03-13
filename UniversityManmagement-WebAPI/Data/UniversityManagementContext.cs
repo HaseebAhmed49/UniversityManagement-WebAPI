@@ -19,6 +19,8 @@ namespace UniversityManmagement_WebAPI.Data
 
         public DbSet<Student> Students { get; set; }
 
+        public DbSet<Course_Instructor> Course_Instructors { get; set; }
+
         public UniversityManagementContext(DbContextOptions<UniversityManagementContext> options): base(options)
         {
 
@@ -36,6 +38,5 @@ namespace UniversityManmagement_WebAPI.Data
                 .WithMany(ci => ci.Course_Instructors)
                 .HasForeignKey(i => i.InstructorId);
         }
-
     }
 }

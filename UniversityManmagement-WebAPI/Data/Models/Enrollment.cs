@@ -22,9 +22,5 @@ namespace UniversityManagement.Data.Models
         public int StudentID { get; set; }
 
         public Student Student { get; set; }
-
-        public Enrollment()
-        {
-        }
     }
 }

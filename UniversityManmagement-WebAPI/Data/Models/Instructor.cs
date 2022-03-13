@@ -35,9 +35,5 @@ namespace UniversityManagement.Data.Models
         public List<Course_Instructor> Course_Instructors { get; set; }
 
         public OfficeAssignment OfficeAssignment { get; set; }
-
-        public Instructor()
-        {
-        }
     }
 }
