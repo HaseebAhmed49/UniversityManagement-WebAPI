@@ -22,6 +22,13 @@ namespace UniversityManmagement_WebAPI.Data.Services
                 FirstMidName = student.FirstMidName,
                 EnrollmentDate = DateTime.Now,                
             };
+            foreach(var id in student.EnrollmentsId)
+            {
+                var studentEnrollment = (from s in _context.Enrollments
+                                         where id == s.EnrollmentID
+                                         select s).FirstOrDefault();
+                _student.Enrollments.Add(studentEnrollment);
+            }
             _context.Students.Add(_student);
             _context.SaveChanges();
         }

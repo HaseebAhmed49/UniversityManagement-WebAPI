@@ -32,10 +32,5 @@ namespace UniversityManagement.Data.Models
         {
             get => LastName + ", " + FirstMidName;
         }
-
-        public Student()
-        {
-
-        }
     }
 }

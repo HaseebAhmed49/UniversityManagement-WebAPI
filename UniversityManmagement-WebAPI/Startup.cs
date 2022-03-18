@@ -75,7 +75,7 @@ namespace UniversityManmagement_WebAPI
                 endpoints.MapControllers();
             });
 
-            DbInitializer.Seed(app);
+          //  DbInitializer.Seed(app);
         }
     }
 }

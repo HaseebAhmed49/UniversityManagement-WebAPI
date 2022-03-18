@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniversityManmagement_WebAPI.Data;
 
 namespace UniversityManmagement_WebAPI.Migrations
 {
     [DbContext(typeof(UniversityManagementContext))]
-    partial class UniversityManagementContextModelSnapshot : ModelSnapshot
+    [Migration("20220314202948_ChangedColumnsValuesAllowToNull")]
+    partial class ChangedColumnsValuesAllowToNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

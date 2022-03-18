@@ -27,6 +27,6 @@ namespace UniversityManagement.Data.Models
 
         public Instructor? Administrator { get; set; }
 
-        public List<Course> Courses { get; set; }
+        public List<Course>? Courses { get; set; }
     }
 }

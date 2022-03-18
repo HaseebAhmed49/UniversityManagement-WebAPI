@@ -25,7 +25,7 @@ namespace UniversityManmagement_WebAPI.Data.Services
                 Student = (from s in _context.Students
                            where s.StudentId == enrollment.StudentID
                            select s).FirstOrDefault(),
-                Grade = Grade.A,
+                Grade = "A",
                 CourseID = enrollment.CourseID,
                 StudentID = enrollment.StudentID                
             };

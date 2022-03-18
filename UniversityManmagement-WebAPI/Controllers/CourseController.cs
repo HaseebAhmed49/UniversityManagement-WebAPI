@@ -21,10 +21,18 @@ namespace UniversityManmagement_WebAPI.Controllers
         }
 
         [HttpPost("add-course")]
-        public IActionResult AddInstructor([FromBody]CourseVM course)
+        public IActionResult AddCourse([FromBody]CourseVM course)
         {
             _courseService.AddCourses(course);
             return Ok();
         }
+
+        [HttpGet("get-all-course")]
+        public IActionResult GetAllCourse()
+        {
+            var courses = _courseService.GetAllCourses();
+            return Ok(courses);
+        }
+
     }
 }

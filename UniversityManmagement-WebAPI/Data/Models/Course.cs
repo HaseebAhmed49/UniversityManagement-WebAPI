@@ -20,15 +20,10 @@ namespace UniversityManagement.Data.Models
 
         public int DepartmentID { get; set; }
 
-        public Department Department { get; set; }
+        public Department? Department { get; set; }
 
-        public List<Enrollment> Enrollments { get; set; }
+        public List<Enrollment>? Enrollments { get; set; }
 
-        public List<Course_Instructor> Course_Instructors { get; set; }
-
-        public Course()
-        {
-
-        }
+        public List<Course_Instructor>? Course_Instructors { get; set; }
     }
 }
