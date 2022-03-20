@@ -18,7 +18,7 @@ namespace UniversityManagement.Data.Models
         [Range(0,5)]
         public int Credits { get; set; }
 
-        public int DepartmentID { get; set; }
+        public int? DepartmentID { get; set; }
 
         public Department? Department { get; set; }
 

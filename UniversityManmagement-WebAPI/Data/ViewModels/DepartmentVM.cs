@@ -22,6 +22,6 @@ namespace UniversityManagement.Data.Models
 
         public int? InstructorID { get; set; }
 
-        public List<int> CoursesId { get; set; }
+        public List<int>? CoursesId { get; set; }
     }
 }

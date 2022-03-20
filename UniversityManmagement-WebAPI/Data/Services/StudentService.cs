@@ -16,19 +16,21 @@ namespace UniversityManmagement_WebAPI.Data.Services
 
         public void AddStudent(StudentVM student)
         {
-            var _student = new Student()
+            List<Enrollment> enrollments = new List<Enrollment>();
+            foreach (var id in student.EnrollmentsId)
             {
+                var enrollment = (from s in _context.Enrollments
+                              where id == s.EnrollmentID
+                              select s).FirstOrDefault();
+                enrollments.Add(enrollment);
+            }
+            var _student = new Student()
+            {                
                 LastName = student.LastName,
                 FirstMidName = student.FirstMidName,
-                EnrollmentDate = DateTime.Now,                
+                EnrollmentDate = DateTime.Now,
+                Enrollments = enrollments
             };
-            foreach(var id in student.EnrollmentsId)
-            {
-                var studentEnrollment = (from s in _context.Enrollments
-                                         where id == s.EnrollmentID
-                                         select s).FirstOrDefault();
-                _student.Enrollments.Add(studentEnrollment);
-            }
             _context.Students.Add(_student);
             _context.SaveChanges();
         }
